@@ -9,8 +9,5 @@ Schritt 2:   Erstellen Sie eine csv-Datei mit dem Namen 'files_not_included.csv'
              durch einen Zeilenumbruch getrennt. Eine Beispieldatei finden Sie im Repository 
              'BEISPIEL_files_not_included.csv')
 
-Schritt 3:   Erstellen Sie einen Ordner 'output' in dem gleichen Ordner, wo die 'NYT_corpus_file_extractor.py' Datei
-             liegt. Hier wird der gewünschte Output abgelegt.
-
-Schritt 4:   Rufen Sie das Programm auf.
+Schritt 3:   Rufen Sie das Programm auf.
              
