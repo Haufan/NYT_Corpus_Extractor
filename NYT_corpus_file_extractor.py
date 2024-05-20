@@ -2,8 +2,32 @@ import os
 import tarfile
 
 
+def check_files():
+    '''Checks if necessary folders and files exist.'''
+
+    print('Checking for folders and files ... \n')
+
+    #path = os.path.abspath('./')
+
+    #checks if folder 'output' exists, if not creates it
+    if not os.path.exists('NYT-all-87-96/NYT-all-87-96/1987/01.tgz'):
+        print('ERROR:   There is no folder NYT-all-87-96/NYT-all-87-96.')
+        exit()
+
+    #checks for file with wanted articles
+    if not os.path.isfile('files_not_included.csv'):
+        print('ERROR:   There is no file files_not_included.csv.')
+        exit()
+
+    #checks if folder 'output' exists, if not creates it
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
+
 def create_file_list():
     '''Reads 'files_not_included.csv' and creates an ordered list of all file names.'''
+
+    print('Creating list of wanted articles ...\n')
 
     #creates path of file
     path = os.path.abspath('./')
@@ -20,6 +44,8 @@ def create_file_list():
 
 def find_files(file_list):
     '''Copies all files from file_list from NYT-Corpus into output.'''
+
+    print('Extracting wanted articles ...\n')
 
     path = os.path.abspath('./')
 
@@ -39,7 +65,10 @@ def find_files(file_list):
             g = open(os.path.join(path, 'output', article), "wb")
             g.write(file_data)
 
+    print('Wanted articles can be found in folder output.')
+
 
 if __name__ == '__main__':
+    check_files()
     file_list = create_file_list()
     find_files(file_list)
